@@ -1,0 +1,16 @@
+// Partiell för footer
+footer {
+    background-color: $primary-color;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    
+    // @if/@else används här för att anpassa stilen beroende på bakgrundsfärg
+    @if $primary-color == #3498db {
+        border-top: 2px solid darken($primary-color, 10%);
+    } @else {
+        border-top: 2px solid lighten($primary-color, 10%);
+    }
+}

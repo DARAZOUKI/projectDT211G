@@ -1,0 +1,87 @@
+
+// Import variables and mixins
+@import '_variables';
+@import '_mixins';
+
+// Header styles
+@import '_partials/_header';
+
+// Footer styles
+@import '_partials/_footer';
+
+// Animation styles
+@import '_partials/_animations';
+
+// Body styling
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: $background-color;
+    color: $text-color;
+    height: auto;
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+
+
+    // Responsive font size
+    @media screen and (max-width: 768px) {
+        font-size: 1em;
+    }
+}
+
+
+.image{
+    width: 100%;
+    height: auto;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#map {
+    height: 50%;
+}
+
+#weather-info {
+    padding: 20px;
+    background-color: #f0f0f0;
+    flex-grow: 1;
+}
+
+#weather-details {
+    margin-top: 20px;
+}
+
+
+ // Light theme
+@media (prefers-color-scheme: light) {
+   
+    body {
+        background-color: $light-background-color;
+        color: $light-text-color;
+    }
+}
+  // Dark theme
+@media (prefers-color-scheme: dark) {
+  
+    body {
+        background-color: $dark-background-color;
+        color: $dark-text-color;
+    }
+}
+#barChartContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Adjust the height as needed */
+}
+
+@media screen and (max-width: 768px) {
+    #barChartContainer {
+        flex-direction: column;
+    }
+}
