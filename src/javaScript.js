@@ -1,13 +1,15 @@
-import $ from 'jquery';
-
-
+"use strict";
 let map;
 
 function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 0, lng: 0 },
-        zoom: 1
-    });
+    if (window.google) {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 0, lng: 0 },
+            zoom: 1
+        });
+    } else {
+        console.error('Google Maps API not loaded.');
+    }
 }
 
 function getWeather() {
