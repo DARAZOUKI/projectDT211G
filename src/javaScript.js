@@ -1,3 +1,6 @@
+import $ from 'jquery';
+
+
 let map;
 
 function initMap() {
