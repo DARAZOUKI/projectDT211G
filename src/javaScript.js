@@ -1,7 +1,9 @@
 "use strict";
+import $ from 'jquery';
+
 let map;
 
-function initMap() {
+export function initMap() {
     if (window.google) {
         map = new google.maps.Map(document.getElementById('map'), {
             center: { lat: 0, lng: 0 },
@@ -13,7 +15,7 @@ function initMap() {
 }
 
 function getWeather() {
-    const location = $('#location').val();
+    const location = encodeURIComponent ($('#location').val());
     if (!location) return;
 
     // Use OpenWeatherMap API to get weather data
