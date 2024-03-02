@@ -1,95 +1,52 @@
 
-
-// partials/animations.scss
-
-@keyframes bounceAnimation {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-20px);
-    }
-    60% {
-        transform: translateY(-10px);
-    }
+.weather-container {
+    text-align: center;
 }
 
-.text-animation {
-    animation: bounceAnimation 2s infinite; // Apply the bouncing animation to text
+.sun {
+    width: 100px;
+    height: 100px;
+    background-color: #FFD700; /* Gold */
+    border-radius: 50%;
+    margin: 20px;
+    box-shadow: 0 0 30px 10px #FFD700;
+    animation: sunny 3s infinite alternate;
 }
 
-.image-animation {
-    animation: bounceAnimation 2s infinite;
-    display: block; 
-    margin: 20px auto; // Center the image
-
-    @media (max-width:1024px){
-            width:100%;
-            margin-left: 10px;
-        
-    }
-    @media (max-width:768px){
-           width:100%;
-            margin-left: 10px;
-        }
-    }
-
-// Moving Object Animation
-@keyframes moveObject {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(100px);
-    }
-    100% {
-        transform: translateX(0);
-    }
+.cloud {
+    width: 200px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 15px;
+    margin: 20px;
+    box-shadow: 0 0 20px 5px #fff;
+    animation: cloudy 4s infinite alternate;
 }
 
-// Style for Moving Object
-.moving-object {
-    width: 70px;
+.rain {
+    width: 2px;
     height: 50px;
-    background-color: #34dbd5;
-    animation: moveObject 3s infinite;
-    margin: 20px auto; // Center the object
+    background-color: #00F; /* Blue */
+    margin: 20px;
+    animation: rainy 0.5s infinite linear;
 }
-//Interaction Animation
-@keyframes interactButton {
-    0% {
-        transform: scale(1);
-    }
-    50% {
+
+@keyframes sunny {
+    to {
         transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
+        box-shadow: 0 0 40px 15px #FFD700;
     }
 }
 
-// Style for Interactive Button
-.interactive-button {
-    padding: 10px 20px;
-    background-color: #5c0343;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin: 20px auto; // Center the button
-
-    // Apply animation on hover
-    &:hover {
-        background-color: #b259aa;
-        animation: interactButton 1s infinite;
+@keyframes cloudy {
+    to {
+        transform: translateX(10px);
+        box-shadow: 0 0 25px 5px #fff;
     }
 }
 
-
-
-
-
-
-
-
-
+@keyframes rainy {
+    to {
+        transform: translateY(50px);
+    }
+}

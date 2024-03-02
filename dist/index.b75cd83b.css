@@ -224,93 +224,56 @@ footer {
   bottom: 0;
 }
 
-@keyframes bounceAnimation {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-
-  40% {
-    transform: translateY(-20px);
-  }
-
-  60% {
-    transform: translateY(-10px);
-  }
+.weather-container {
+  text-align: center;
 }
 
-.text-animation {
-  animation: 2s infinite bounceAnimation;
+.sun {
+  background-color: gold;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  animation: 3s infinite alternate sunny;
+  box-shadow: 0 0 30px 10px gold;
 }
 
-.image-animation {
-  margin: 20px auto;
-  animation: 2s infinite bounceAnimation;
-  display: block;
+.cloud {
+  background-color: #fff;
+  border-radius: 15px;
+  width: 200px;
+  height: 80px;
+  margin: 20px;
+  animation: 4s infinite alternate cloudy;
+  box-shadow: 0 0 20px 5px #fff;
 }
 
-@media (width <= 1024px) {
-  .image-animation {
-    width: 100%;
-    margin-left: 10px;
-  }
-}
-
-@media (width <= 768px) {
-  .image-animation {
-    width: 100%;
-    margin-left: 10px;
-  }
-}
-
-@keyframes moveObject {
-  0% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(100px);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.moving-object {
-  background-color: #34dbd5;
-  width: 70px;
+.rain {
+  background-color: #00f;
+  width: 2px;
   height: 50px;
-  margin: 20px auto;
-  animation: 3s infinite moveObject;
+  margin: 20px;
+  animation: .5s linear infinite rainy;
 }
 
-@keyframes interactButton {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
+@keyframes sunny {
+  to {
     transform: scale(1.2);
-  }
-
-  100% {
-    transform: scale(1);
+    box-shadow: 0 0 40px 15px gold;
   }
 }
 
-.interactive-button {
-  color: #fff;
-  cursor: pointer;
-  background-color: #5c0343;
-  border: none;
-  margin: 20px auto;
-  padding: 10px 20px;
-  transition: background-color .3s, transform .2s;
+@keyframes cloudy {
+  to {
+    transform: translateX(10px);
+    box-shadow: 0 0 25px 5px #fff;
+  }
 }
 
-.interactive-button:hover {
-  background-color: #b259aa;
-  animation: 1s infinite interactButton;
+@keyframes rainy {
+  to {
+    transform: translateY(50px);
+  }
 }
 
 body {

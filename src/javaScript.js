@@ -17,7 +17,8 @@ function getWeather() {
     if (!location) return;
 
     // Use OpenWeatherMap API to get weather data
-    $.getJSON(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=dcf04c7c38b6e9695746129d8c948d9b`, function (data) {
+    $.getJSON(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=11b4a60445294b2600c2c247f4e1cd11`, function (data) {
+      
         // Display weather data
         displayWeather(data);
 

@@ -6,12 +6,28 @@
     <title>Weather Forecast</title>
     <link rel="stylesheet" href="scss/main.scss">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWMmtEWa6fMmbB9P54_E2h_Kz9j4W10q0&callback=initMap"async defer></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWMmtEWa6fMmbB9P54_E2h_Kz9j4W10q0&callback=initMap" defer></script>
    
     <script src="javaScript.js" type="module"></script>
 </head>
 <header>
-    <h1>My Weather</h1>
+    <button class="menu-btn open" id="open-menu"  aria-label="Open Menu">
+        <span class="menu-icon">
+            <span class="bars"></span>
+            <span class="bars"></span>
+            <span class="bars"></span>
+        </span>
+    </button>
+    <nav id="nav-menu">
+        <button class="menu-btn close" id="close-menu">
+            <span>X</span>
+        </button>
+        
+        <ul>
+        <li><a href="index.html">STARTSIDAN</a></li>
+        <li><a href="weatheranimation.html">WEATHERANIMATION</a></li>
+    </ul>
+</nav>
 </header>
 <body>
     <img src="images/images.jpg" alt="images" class="image">
