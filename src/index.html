@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast</title>
     <link rel="stylesheet" href="scss/main.scss">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpXW_UsTl-tbDgMeG77ucxHxx7XGi68ms" defer></script>
-   
-    <script src="javaScript.js" type="module"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
 </head>
 <header>
     <button class="menu-btn open" id="open-menu"  aria-label="Open Menu">
@@ -26,6 +24,7 @@
         <ul>
         <li><a href="index.html">STARTSIDAN</a></li>
         <li><a href="weatheranimation.html">WEATHERANIMATION</a></li>
+      
     </ul>
 </nav>
 </header>
@@ -33,14 +32,16 @@
     <img src="images/images.jpg" alt="images" class="image">
 
     <div id="map"></div>
-    <div id="weather-info">
+    <div>
         <label for="location">Select Location:</label>
         <input type="text" id="location" placeholder="Enter Location">
         <button onclick="getWeather()">Get Weather</button>
         <div id="weather-details"></div>
     </div>
 
-
+   
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpXW_UsTl-tbDgMeG77ucxHxx7XGi68ms&callback=initMap" async defer></script>
+    <script src="javaScript.js" type="module"></script>
 
 </body>
 </html>

@@ -585,87 +585,42 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"becJD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "initMap", ()=>initMap);
 var _jquery = require("jquery");
 var _jqueryDefault = parcelHelpers.interopDefault(_jquery);
 "use strict";
-let map;
 function initMap() {
-    if (window.google) map = new google.maps.Map(document.getElementById("map"), {
-        center: {
-            lat: 0,
-            lng: 0
-        },
-        zoom: 1
+    navigator.geolocation.getCurrentPosition((position)=>{
+        const mapElement = document.getElementById("map");
+        mapElement.innerHTML = `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`;
     });
-    else console.error("Google Maps API not loaded.");
 }
+initMap();
 function getWeather() {
-    const location = encodeURIComponent((0, _jqueryDefault.default)("#location").val());
+    const location = encodeURIComponent(document.getElementById("location").value);
     if (!location) return;
-    // Use OpenWeatherMap API to get weather data
-    (0, _jqueryDefault.default).getJSON(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=11b4a60445294b2600c2c247f4e1cd11`, function(data) {
-        // Display weather data
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=c2562d53045ecc0679458c0be80122f6`).then((response)=>response.json()).then((data)=>{
+        console.log(data); // Log the API response to the console
         displayWeather(data);
-        // Add a marker to the map
-        const marker = new google.maps.Marker({
-            position: {
-                lat: data.coord.lat,
-                lng: data.coord.lon
-            },
-            map: map,
-            title: data.name
-        });
-        // Center the map on the marker
-        map.panTo({
-            lat: data.coord.lat,
-            lng: data.coord.lon
-        });
-    });
+    }).catch((error)=>console.error("Error fetching weather data:", error));
 }
 function displayWeather(weatherData) {
     const weatherDetails = document.getElementById("weather-details");
     weatherDetails.innerHTML = `
-        <h2>Weather Details for ${weatherData.name}</h2>
-        <p>Temperature: ${weatherData.main.temp}\xb0C</p>
-        <p>Description: ${weatherData.weather[0].description}</p>
-        <p>Humidity: ${weatherData.main.humidity}%</p>
-        <p>Wind Speed: ${weatherData.wind.speed} m/s</p>
-    `;
+    <h2>Weather Details for ${weatherData.name}</h2>
+    <div class="weather-icon">
+        <img src="https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png" alt="Weather Icon">
+    </div>
+    <p>Temperature: ${weatherData.main.temp}\xb0C</p>
+    <p>Description: ${weatherData.weather[0].description}</p>
+    <p>Humidity: ${weatherData.main.humidity}%</p>
+    <p>Wind Speed: ${weatherData.wind.speed} m/s</p>
+    <button onclick="displayDetailedWeather('${weatherData.name}')">More Details</button>
+`;
 }
+window.initMap = initMap; // Ensure initMap is available globally
+window.getWeather = getWeather; // Ensure getWeather is available globally
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh","jquery":"9o0Tu"}],"j7FRh":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"9o0Tu":[function(require,module,exports) {
+},{"jquery":"9o0Tu","@parcel/transformer-js/src/esmodule-helpers.js":"j7FRh"}],"9o0Tu":[function(require,module,exports) {
 /*!
  * jQuery JavaScript Library v3.7.1
  * https://jquery.com/
@@ -7365,6 +7320,36 @@ exports.export = function(dest, destName, get) {
     if (typeof noGlobal === "undefined") window1.jQuery = window1.$ = jQuery;
     return jQuery;
 });
+
+},{}],"j7FRh":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}]},["7umv1","becJD"], "becJD", "parcelRequirebbb8")
 
