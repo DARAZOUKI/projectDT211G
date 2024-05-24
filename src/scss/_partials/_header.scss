@@ -110,7 +110,7 @@ header {
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
     }
-}
+
 
 // Styles for larger screens
 @media only screen and (min-width: 1025px) {
@@ -219,4 +219,5 @@ header {
             right: 10px;
         }
     }
+}
 }

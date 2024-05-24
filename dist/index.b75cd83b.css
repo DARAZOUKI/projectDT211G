@@ -113,7 +113,7 @@ header nav .menu-btn, header nav .bars {
 }
 
 @media only screen and (width >= 1025px) {
-  nav {
+  header nav {
     width: auto;
     height: auto;
     font-size: 1.4em;
@@ -124,26 +124,26 @@ header nav .menu-btn, header nav .bars {
     display: block !important;
   }
 
-  nav ul {
+  header nav ul {
     display: flex;
   }
 
-  nav li {
+  header nav li {
     padding: 1.2em 0;
     display: inline;
   }
 
-  nav .menu-btn {
+  header nav .menu-btn {
     display: none;
   }
 
-  nav #open-menu, nav #close-menu {
+  header nav #open-menu, header nav #close-menu {
     display: none !important;
   }
 }
 
 @media screen and (width <= 1024px) {
-  nav {
+  header nav {
     z-index: 1;
     background-color: #fff;
     width: 300px;
@@ -154,7 +154,7 @@ header nav .menu-btn, header nav .bars {
     right: 0;
   }
 
-  nav ul {
+  header nav ul {
     text-align: justify;
     width: 100%;
     margin: 20px auto;
@@ -162,7 +162,7 @@ header nav .menu-btn, header nav .bars {
     list-style-type: none;
   }
 
-  nav li {
+  header nav li {
     cursor: pointer;
     text-align: justify;
     border: none;
@@ -171,7 +171,7 @@ header nav .menu-btn, header nav .bars {
     font-size: 1.5rem;
   }
 
-  nav .menu-btn {
+  header nav .menu-btn {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -179,7 +179,7 @@ header nav .menu-btn, header nav .bars {
 }
 
 @media screen and (width <= 768px) {
-  nav {
+  header nav {
     z-index: 1;
     background-color: #fff;
     width: 300px;
@@ -190,7 +190,7 @@ header nav .menu-btn, header nav .bars {
     right: 0;
   }
 
-  nav ul {
+  header nav ul {
     text-align: justify;
     width: 100%;
     margin: 20px auto;
@@ -198,7 +198,7 @@ header nav .menu-btn, header nav .bars {
     list-style-type: none;
   }
 
-  nav li {
+  header nav li {
     cursor: pointer;
     text-align: justify;
     border: none;
@@ -207,7 +207,7 @@ header nav .menu-btn, header nav .bars {
     font-size: 1.5rem;
   }
 
-  nav .menu-btn {
+  header nav .menu-btn {
     position: absolute;
     top: 10px;
     right: 10px;
