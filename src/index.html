@@ -6,43 +6,51 @@
     <title>Weather Forecast</title>
     <link rel="stylesheet" href="scss/main.scss">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    
 </head>
-<header>
-    <button class="menu-btn open" id="open-menu"  aria-label="Open Menu">
-        <span class="menu-icon">
-            <span class="bars"></span>
-            <span class="bars"></span>
-            <span class="bars"></span>
-        </span>
-    </button>
-    <nav id="nav-menu">
-        <button class="menu-btn close" id="close-menu">
-            <span>X</span>
-        </button>
-        
-        <ul>
-        <li><a href="index.html">STARTSIDAN</a></li>
-        <li><a href="weatheranimation.html">WEATHERANIMATION</a></li>
-      
-    </ul>
-</nav>
-</header>
 <body>
-    <img src="images/images.jpg" alt="images" class="image">
-
-    <div id="map"></div>
-    <div>
-        <label for="location">Select Location:</label>
-        <input type="text" id="location" placeholder="Enter Location">
-        <button onclick="getWeather()">Get Weather</button>
-        <div id="weather-details"></div>
+    <div class="wrapper">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="about.html"><img src="images/logo3.png" alt="logo" class="logo"></a></li>
+                <li><a href="index.html">WEATHER FORECAST</a></li>
+                <li><a href="weatheranimation.html">WEATHER ANIMATION</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <img src="images/image1.jpg" alt="Weather Image" class="hero-image">
+            <div class="overlay">
+                <h1>Weather Forecast</h1>
+                <div class="input-container">
+                    <label for="location">Select Location:</label>
+                    <input type="text" id="location" placeholder="Enter Location">
+                    <button onclick="getWeather()">Get Weather</button>
+                </div>
+                <section id="weather-details" class="weather-info"></section>
+            </div>
+        </section>
+       
+    
+    </main>
+    <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <a href="about.html"><img src="images/logo3.png" alt="logo" class="logo"></a>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">WEATHER FORECAST</a>
+            <a href="weatheranimation.html">WEATHER ANIMATION</a>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2024 Weather Forecast. All rights reserved.</p>
+        </div>
     </div>
-
-   
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpXW_UsTl-tbDgMeG77ucxHxx7XGi68ms&callback=initMap" async defer></script>
+</footer>
+</div>
+    <script src="java.js" ></script>
     <script src="javaScript.js" type="module"></script>
-    <script src="javaheader.js" type="module"></script>
-
+  
 </body>
 </html>

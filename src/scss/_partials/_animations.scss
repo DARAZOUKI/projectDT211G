@@ -1,52 +1,82 @@
 
-.weather-container {
-    text-align: center;
-}
-
 .sun {
+    position: absolute;
+    top: 50px;
+    left: 50px;
     width: 100px;
     height: 100px;
-    background-color: #FFD700; /* Gold */
+    background: yellow;
     border-radius: 50%;
-    margin: 20px;
-    box-shadow: 0 0 30px 10px #FFD700;
-    animation: sunny 3s infinite alternate;
+    animation: moveSun 20s linear infinite;
+}
+
+@keyframes moveSun {
+    0% { top: 50px; left: 50px; }
+    50% { top: 50px; left: calc(100% - 150px); }
+    100% { top: 50px; left: 50px; }
 }
 
 .cloud {
-    width: 200px;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 150px;
     height: 80px;
-    background-color: #fff;
-    border-radius: 15px;
-    margin: 20px;
-    box-shadow: 0 0 20px 5px #fff;
-    animation: cloudy 4s infinite alternate;
+    background: #fff;
+    border-radius: 80px;
+    animation: moveClouds 15s linear infinite;
+}
+
+.cloud:before, .cloud:after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    border-radius: 50%;
+}
+
+.cloud:before {
+    left: 10px;
+}
+
+.cloud:after {
+    right: 10px;
+}
+
+@keyframes moveClouds {
+    0% { left: -200px; }
+    50% { left: calc(100% + 200px); }
+    100% { left: -200px; }
 }
 
 .rain {
-    width: 2px;
-    height: 50px;
-    background-color: #00F; /* Blue */
-    margin: 20px;
-    animation: rainy 0.5s infinite linear;
+    position: absolute;
+    top: 180px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(transparent, rgba(0, 0, 255, 0.5));
+    animation: rain 1s linear infinite;
 }
 
-@keyframes sunny {
-    to {
-        transform: scale(1.2);
-        box-shadow: 0 0 40px 15px #FFD700;
-    }
+@keyframes rain {
+    0% { background-position: 0 0; }
+    100% { background-position: -100px 100px; }
 }
 
-@keyframes cloudy {
-    to {
-        transform: translateX(10px);
-        box-shadow: 0 0 25px 5px #fff;
-    }
+.storm {
+    position: absolute;
+    top: 180px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+    animation: storm 0.5s linear infinite;
 }
 
-@keyframes rainy {
-    to {
-        transform: translateY(50px);
-    }
+@keyframes storm {
+    0% { background-position: 0 0; }
+    100% { background-position: -100px 100px; }
 }

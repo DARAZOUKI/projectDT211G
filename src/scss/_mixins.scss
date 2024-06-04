@@ -1,17 +1,8 @@
-@import 'variables';
-  
-// Mixins
-@mixin box-shadow($x, $y, $blur, $color) {
-  box-shadow: $x $y $blur $color;
+//  mixin 
+@mixin responsive-font($min-size, $max-size) {
+  font-size: $min-size;
+
+  @media (min-width: 768px) {
+    font-size: $max-size;
+  }
 }
-
-.box-with-shadow {
-  @include box-shadow(2px, 2px, 5px, #888);
-}
-
-// Selector inheritance
-.menu-btn.close {
-  @extend .box-with-shadow;
-}
-
-

@@ -1,90 +1,299 @@
+// Import mixins and partials
 
-// Import variables and mixins
-@import '_variables';
+
+@import '_partials/_animations.scss';
+@import '_partials/_header.scss';
+@import '_partials/_footer.scss';
 @import '_mixins';
-
-// Header styles
-@import '_partials/_header';
-
-// Footer styles
-@import '_partials/_footer';
-
-// Animation styles
-@import '_partials/_animations';
-
-// Body styling
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: $background-color;
-    color: $text-color;
-    height: auto;
-    width: 100%;
-    overflow-x: hidden;
+body, html {
     margin: 0;
     padding: 0;
-
-
-    // Responsive font size
-    @media screen and (max-width: 768px) {
-        font-size: 1em;
-    }
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+.logo{
+width: 40px;
+height: 30px;
 }
 
-
-.image{
-    width: 100%;
-    height: auto;
-}
-
-#app {
+.wrapper {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 150vh;
+}
+/*
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 1rem;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}*/
+
+main {
+    flex: 1;
+}
+
+.weather-container {
+    position: relative;
+    height: 400px;
+    background: #87ceeb;
+    overflow: hidden;
+    margin-top: -30px;
+}
+/*
+.sun {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    border-radius: 50%;
+    animation: moveSun 20s linear infinite;
+}
+
+@keyframes moveSun {
+    0% { top: 50px; left: 50px; }
+    50% { top: 50px; left: calc(100% - 150px); }
+    100% { top: 50px; left: 50px; }
+}
+
+.cloud {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 150px;
+    height: 80px;
+    background: #fff;
+    border-radius: 80px;
+    animation: moveClouds 15s linear infinite;
+}
+
+.cloud:before, .cloud:after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    border-radius: 50%;
+}
+
+.cloud:before {
+    left: 10px;
+}
+
+.cloud:after {
+    right: 10px;
+}
+
+@keyframes moveClouds {
+    0% { left: -200px; }
+    50% { left: calc(100% + 200px); }
+    100% { left: -200px; }
+}
+
+.rain {
+    position: absolute;
+    top: 180px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(transparent, rgba(0, 0, 255, 0.5));
+    animation: rain 1s linear infinite;
+}
+
+@keyframes rain {
+    0% { background-position: 0 0; }
+    100% { background-position: -100px 100px; }
+}
+
+.storm {
+    position: absolute;
+    top: 180px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+    animation: storm 0.5s linear infinite;
+}
+
+@keyframes storm {
+    0% { background-position: 0 0; }
+    100% { background-position: -100px 100px; }
+}
+*/
+.weather-info {
+    position: relative;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
 }
 
 #map {
-    height: 50%;
-}
-
-#weather-info {
-    padding: 20px;
-    background-color: #f0f0f0;
-    flex-grow: 1;
-}
-
-#weather-details {
-    margin-top: 20px;
-}
-.weather-icon img {
-    width: 50px; /* Adjust the size as needed */
-}
-
-
- // Light theme
-@media (prefers-color-scheme: light) {
+    width: 100%;
+    height: 70vh;
+    margin-top: 40px;
+    border-radius: 8px;
+    
    
-    body {
-        background-color: $light-background-color;
-        color: $light-text-color;
-    }
 }
-  // Dark theme
-@media (prefers-color-scheme: dark) {
-  
-    body {
-        background-color: $dark-background-color;
-        color: $dark-text-color;
+/*
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    margin-top: auto;
+}*/
+
+// Hero section
+.hero {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    margin-top: -30px;
+
+    .hero-image {
+        width: 100%;
+        height: 130vh;
     }
-}
-#barChartContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;  /* Adjust the height as needed */
+
+    .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(0, 0, 170);
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            margin-top: 20px;
+
+            label {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            button {
+                padding: 10px 20px;
+                background-color: #027acb;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #399fb1;
+                }
+            }
+        }
+    }
+   
+        
+    }
+    
+    // Media Queries
+@media (max-width: 1200px) {
+    .weather-info {
+        padding: 15px;
+    }
+
+    .hero .overlay h1 {
+        font-size: 30px;
+    }
 }
 
-@media screen and (max-width: 768px) {
-    #barChartContainer {
+@media (max-width: 768px) {
+    header nav ul {
         flex-direction: column;
     }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    .weather-container {
+        height: 60vh;
+    }
+
+    #map {
+        height: 60vh;
+    }
+
+    .hero .overlay h1 {
+        font-size: 24px;
+    }
+    .hero-image{
+        height: 40vh;
+    }
+
 }
+.about {
+    background-color: #e0f7fa; /* Light blue */
+    border: 2px solid #0288d1; /* Medium blue */
+    padding: 2rem;
+    border-radius: 8px;
+}
+.about h1, .about h2 {
+    color: #01579b; /* Dark blue */
+}
+.about p, .about ul {
+    color: #000406; /* Medium blue */
+}
+.about ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+.about ul li {
+    margin-bottom: 0.5rem;
+}
+.about a {
+    color: #0288d1; /* Medium blue */
+    text-decoration: none;
+}
+.about a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .weather-container {
+        height: 70vh;
+    }
+
+    #map {
+        height: 50vh;
+    }
+
+    .hero .overlay h1 {
+        font-size: 18px;
+    }
+}
+
+
+

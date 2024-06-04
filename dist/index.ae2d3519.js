@@ -584,6 +584,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"e83mm":[function(require,module,exports) {
+//javaheader
 "use strict";
 let openBtn = document.getElementById("open-menu");
 let closeBtn = document.getElementById("close-menu");

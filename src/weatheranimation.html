@@ -8,42 +8,55 @@
     <link rel="stylesheet" href="scss/main.scss">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
-<header>
-    <button class="menu-btn open" id="open-menu"  aria-label="Open Menu">
-        <span class="menu-icon">
-            <span class="bars"></span>
-            <span class="bars"></span>
-            <span class="bars"></span>
-        </span>
-    </button>
-    <nav id="nav-menu">
-        <button class="menu-btn close" id="close-menu">
-            <span>X</span>
-        </button>
-        
-        <ul>
-        <li><a href="index.html">STARTSIDAN</a></li>
-        <li><a href="weatheranimation.html">WEATHERANIMATION</a></li>
-       
-    </ul>
-</nav>
-</header>
 <body>
+    <div class="wrapper">
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="about.html"><img src="images/logo3.png" alt="logo" class="logo"></a></li>
+                <li><a href="index.html">WEATHER FORECAST</a></li>
+                <li><a href="weatheranimation.html">WEATHER ANIMATION</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
     <div class="weather-container">
         <div class="sun"></div>
         <div class="cloud"></div>
         <div class="rain"></div>
+        <div class="storm"></div>
         <h1 class="animate__animated animate__fadeInDown">Weather Forecast</h1>
         <div class="weather-info animate__animated animate__fadeIn">
             <label for="location">Select Location:</label>
             <input type="text" id="location" placeholder="Enter Location">
             <button onclick="getWeather()">Get Weather</button>
-            <div id="weather-details"></div>
+            <div id="weather-details"  class="weather-info"></div>
+           
+        </div>
+      
+    </div>
+    <section id="map" class="map"></section>
+</main>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <a href="about.html"><img src="images/logo3.png" alt="logo" class="logo"></a>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">WEATHER FORECAST</a>
+            <a href="weatheranimation.html">WEATHER ANIMATION</a>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2024 Weather Forecast. All rights reserved.</p>
         </div>
     </div>
+</footer>
+</div>
 
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWMmtEWa6fMmbB9P54_E2h_Kz9j4W10q0&callback=initMap" async defer></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWMmtEWa6fMmbB9P54_E2h_Kz9j4W10q0&callback=initMap"></script>
+    <script src="java.js" type="module"></script>
     <script src="javaScript.js" type="module"></script>
-    <script src="javaheader.js" type="module"></script>
+    
 </body>
 </html>

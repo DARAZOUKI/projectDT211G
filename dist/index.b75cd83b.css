@@ -1,350 +1,374 @@
-.box-with-shadow, .menu-btn.close {
-  box-shadow: 2px 2px 5px #888;
+.sun {
+  background: #ff0;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: 20s linear infinite moveSun;
+  position: absolute;
+  top: 50px;
+  left: 50px;
 }
 
-header {
-  background-color: #3498db;
+@keyframes moveSun {
+  0% {
+    top: 50px;
+    left: 50px;
+  }
+
+  50% {
+    top: 50px;
+    left: calc(100% - 150px);
+  }
+
+  100% {
+    top: 50px;
+    left: 50px;
+  }
+}
+
+.cloud {
+  background: #fff;
+  border-radius: 80px;
+  width: 150px;
+  height: 80px;
+  animation: 15s linear infinite moveClouds;
+  position: absolute;
+  top: 100px;
+  left: 0;
+}
+
+.cloud:before, .cloud:after {
+  content: "";
+  background: #fff;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -50px;
+}
+
+.cloud:before {
+  left: 10px;
+}
+
+.cloud:after {
+  right: 10px;
+}
+
+@keyframes moveClouds {
+  0% {
+    left: -200px;
+  }
+
+  50% {
+    left: calc(100% + 200px);
+  }
+
+  100% {
+    left: -200px;
+  }
+}
+
+.rain {
+  background: linear-gradient(#0000, #0000ff80);
   width: 100%;
-  padding: 30px;
+  height: 100px;
+  animation: 1s linear infinite rain;
+  position: absolute;
+  top: 180px;
+  left: 0;
+}
+
+@keyframes rain {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -100px 100px;
+  }
+}
+
+.storm {
+  background: linear-gradient(#0000, #00000080);
+  width: 100%;
+  height: 100px;
+  animation: .5s linear infinite storm;
+  position: absolute;
+  top: 180px;
+  left: 0;
+}
+
+@keyframes storm {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -100px 100px;
+  }
+}
+
+header nav ul {
+  background-color: #333;
+  justify-content: space-around;
+  padding: 3rem;
+  list-style: none;
   display: flex;
 }
 
-header h1 {
+header nav ul li {
+  margin: 0 1rem;
+}
+
+header nav ul li a {
   color: #fff;
-}
-
-header nav {
-  box-shadow: none;
-  z-index: 1;
-  width: 250px;
-  height: auto;
-  font-size: 1.2em;
-  display: none;
-  position: absolute;
-  left: 20px;
-  right: 0;
-}
-
-header nav a {
-  color: #242323;
-  margin-left: 20px;
-  font-size: .7em;
   font-weight: bold;
   text-decoration: none;
 }
 
-header nav ul {
-  text-align: justify;
-  width: 100%;
-  margin: 20px auto;
-  padding: 0;
-  list-style-type: none;
-}
-
-header nav li {
-  cursor: pointer;
-  text-align: justify;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 30px;
-  font-size: 1.5rem;
-}
-
-header nav ul li {
-  margin-right: 100px;
-  display: flex;
-}
-
-header nav .menu-btn.close {
-  cursor: pointer;
-  z-index: 2;
-  background-color: #ede8e8;
-  border: 2px solid #e8eaec;
-  border-radius: 5px;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
-  display: flex;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-header nav .menu-btn:hover {
-  background-color: #f2f5ea;
-  box-shadow: 0 0 5px #0000006b;
-}
-
-header nav .menu-btn {
-  cursor: pointer;
-  background-color: #101010;
-  border: 2px solid #000;
-  border-radius: 5px;
-  align-items: center;
-  height: 10vh;
-  padding: 8px;
-  display: flex;
-}
-
-header nav .menu-icon {
+.footer {
+  color: #f5f7fa;
+  text-align: center;
+  background-color: #333;
   flex-direction: column;
   align-items: center;
-  margin-right: 10px;
+  padding: 20px 0;
   display: flex;
 }
 
-header nav .bars {
-  background-color: #2c363f;
-  border-radius: 3px;
-  width: 80px;
-  height: 3px;
-  margin: 5px 0;
-  display: block;
-}
-
-header nav .c1, header nav .c2 {
-  width: 30px;
-  position: relative;
-  top: 0;
-}
-
-header nav .menu-btn, header nav .bars {
-  transition: background-color .3s, box-shadow .3s;
-}
-
-@media only screen and (width >= 1025px) {
-  header nav {
-    width: auto;
-    height: auto;
-    font-size: 1.4em;
-    position: static;
-    top: 0;
-    right: 0;
-    box-shadow: 0 0;
-    display: block !important;
-  }
-
-  header nav ul {
-    display: flex;
-  }
-
-  header nav li {
-    padding: 1.2em 0;
-    display: inline;
-  }
-
-  header nav .menu-btn {
-    display: none;
-  }
-
-  header nav #open-menu, header nav #close-menu {
-    display: none !important;
-  }
-}
-
-@media screen and (width <= 1024px) {
-  header nav {
-    z-index: 1;
-    background-color: #fff;
-    width: 300px;
-    height: 70vh;
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-  }
-
-  header nav ul {
-    text-align: justify;
-    width: 100%;
-    margin: 20px auto;
-    padding: 0;
-    list-style-type: none;
-  }
-
-  header nav li {
-    cursor: pointer;
-    text-align: justify;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 30px;
-    font-size: 1.5rem;
-  }
-
-  header nav .menu-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-}
-
-@media screen and (width <= 768px) {
-  header nav {
-    z-index: 1;
-    background-color: #fff;
-    width: 300px;
-    height: 70vh;
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-  }
-
-  header nav ul {
-    text-align: justify;
-    width: 100%;
-    margin: 20px auto;
-    padding: 0;
-    list-style-type: none;
-  }
-
-  header nav li {
-    cursor: pointer;
-    text-align: justify;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 30px;
-    font-size: 1.5rem;
-  }
-
-  header nav .menu-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-}
-
-footer {
-  color: #fff;
-  text-align: center;
-  background-color: #3498db;
-  border-top: 2px solid #217dbb;
+.footer-content {
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  padding: 10px;
-  bottom: 0;
+  max-width: 1200px;
+  padding: 0 20px;
+  display: flex;
 }
 
-.weather-container {
-  text-align: center;
+.footer-logo {
+  text-align: left;
+  flex: 1;
 }
 
-.sun {
-  background-color: gold;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  margin: 20px;
-  animation: 3s infinite alternate sunny;
-  box-shadow: 0 0 30px 10px gold;
+.footer-logo img {
+  height: 30px;
 }
 
-.cloud {
-  background-color: #fff;
-  border-radius: 15px;
-  width: 200px;
-  height: 80px;
-  margin: 20px;
-  animation: 4s infinite alternate cloudy;
-  box-shadow: 0 0 20px 5px #fff;
+.footer-links {
+  flex: 2;
+  justify-content: center;
+  gap: 20px;
+  display: flex;
 }
 
-.rain {
-  background-color: #00f;
-  width: 2px;
-  height: 50px;
-  margin: 20px;
-  animation: .5s linear infinite rainy;
+.footer-links a {
+  color: #f5f7fa;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color .3s;
 }
 
-@keyframes sunny {
-  to {
-    transform: scale(1.2);
-    box-shadow: 0 0 40px 15px gold;
+.footer-links a:hover {
+  color: #a48ef2;
+}
+
+.footer-copy {
+  text-align: right;
+  flex: 2;
+}
+
+@media (width <= 768px) {
+  .footer-content {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-logo, .footer-links, .footer-copy {
+    text-align: center;
+    margin-bottom: 10px;
   }
 }
 
-@keyframes cloudy {
-  to {
-    transform: translateX(10px);
-    box-shadow: 0 0 25px 5px #fff;
-  }
-}
-
-@keyframes rainy {
-  to {
-    transform: translateY(50px);
-  }
-}
-
-body {
-  color: #333;
-  background-color: #fff;
-  width: 100%;
-  height: auto;
+body, html {
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  overflow-x: hidden;
 }
 
-@media screen and (width <= 768px) {
-  body {
-    font-size: 1em;
-  }
+.logo {
+  width: 40px;
+  height: 30px;
 }
 
-.image {
-  width: 100%;
-  height: auto;
-}
-
-#app {
+.wrapper {
   flex-direction: column;
-  height: 100vh;
+  min-height: 150vh;
   display: flex;
+}
+
+main {
+  flex: 1;
+}
+
+.weather-container {
+  background: #87ceeb;
+  height: 400px;
+  margin-top: -30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.weather-info {
+  text-align: center;
+  background: #fffc;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 20px;
+  position: relative;
 }
 
 #map {
-  height: 50%;
+  border-radius: 8px;
+  width: 100%;
+  height: 70vh;
+  margin-top: 40px;
 }
 
-#weather-info {
-  background-color: #f0f0f0;
-  flex-grow: 1;
-  padding: 20px;
+.hero {
+  text-align: center;
+  margin-top: -30px;
+  position: relative;
+  overflow: hidden;
 }
 
-#weather-details {
+.hero .hero-image {
+  width: 100%;
+  height: 130vh;
+}
+
+.hero .overlay {
+  color: #00a;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero .overlay h1 {
+  margin-bottom: 20px;
+  font-size: 36px;
+}
+
+.hero .overlay .input-container {
   margin-top: 20px;
 }
 
-.weather-icon img {
-  width: 50px;
+.hero .overlay .input-container label {
+  margin-bottom: 10px;
+  display: block;
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-    color: #333;
-    background-color: #fff;
+.hero .overlay .input-container input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.hero .overlay .input-container button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #027acb;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.hero .overlay .input-container button:hover {
+  background-color: #399fb1;
+}
+
+@media (width <= 1200px) {
+  .weather-info {
+    padding: 15px;
+  }
+
+  .hero .overlay h1 {
+    font-size: 30px;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    color: #fff;
-    background-color: #0e0437;
-  }
-}
-
-#barChartContainer {
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  display: flex;
-}
-
-@media screen and (width <= 768px) {
-  #barChartContainer {
+@media (width <= 768px) {
+  header nav ul {
     flex-direction: column;
+  }
+
+  header nav ul li {
+    margin: 10px 0;
+  }
+
+  .weather-container, #map {
+    height: 60vh;
+  }
+
+  .hero .overlay h1 {
+    font-size: 24px;
+  }
+
+  .hero-image {
+    height: 40vh;
+  }
+}
+
+.about {
+  background-color: #e0f7fa;
+  border: 2px solid #0288d1;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.about h1, .about h2 {
+  color: #01579b;
+}
+
+.about p, .about ul {
+  color: #000406;
+}
+
+.about ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.about ul li {
+  margin-bottom: .5rem;
+}
+
+.about a {
+  color: #0288d1;
+  text-decoration: none;
+}
+
+.about a:hover {
+  text-decoration: underline;
+}
+
+@media (width <= 480px) {
+  .weather-container {
+    height: 70vh;
+  }
+
+  #map {
+    height: 50vh;
+  }
+
+  .hero .overlay h1 {
+    font-size: 18px;
   }
 }

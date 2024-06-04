@@ -1,3 +1,6 @@
+//java.js
+
+// Fetch weather data from OpenWeatherMap API based on the user's input
 function getWeather() {
     const location = $('#location').val();
     if (!location) return;
@@ -8,6 +11,7 @@ function getWeather() {
     });
 }
 
+// Display weather details on the webpage
 function displayWeather(weatherData) {
     const weatherDetails = $('#weather-details');
     weatherDetails.html(`
@@ -18,3 +22,16 @@ function displayWeather(weatherData) {
         <p>Wind Speed: ${weatherData.wind.speed} m/s</p>
     `);
 }
+
+// Add event listeners to call the getWeather function when the button is clicked
+$('#location').on('keypress', function (e) {
+    if (e.which === 13) {
+        getWeather();
+    }
+});
+
+$('#get-weather-button').on('click', function () {
+    getWeather();
+});
+
+
