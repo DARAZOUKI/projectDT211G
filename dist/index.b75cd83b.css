@@ -112,7 +112,8 @@
 header nav ul {
   background-color: #333;
   justify-content: space-around;
-  padding: 3rem;
+  margin-top: 0;
+  padding: 2rem;
   list-style: none;
   display: flex;
 }
@@ -235,7 +236,7 @@ main {
 #map {
   border-radius: 8px;
   width: 100%;
-  height: 70vh;
+  height: 60vh;
   margin-top: 40px;
 }
 
@@ -313,8 +314,12 @@ main {
     margin: 10px 0;
   }
 
-  .weather-container, #map {
+  .weather-container {
     height: 60vh;
+  }
+
+  #map {
+    height: 40vh;
   }
 
   .hero .overlay h1 {
@@ -365,7 +370,7 @@ main {
   }
 
   #map {
-    height: 50vh;
+    height: 40vh;
   }
 
   .hero .overlay h1 {
