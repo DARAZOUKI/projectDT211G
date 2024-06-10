@@ -33,5 +33,14 @@ $('#location').on('keypress', function (e) {
 $('#get-weather-button').on('click', function () {
     getWeather();
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('open-menu');
+    const navMenu = document.getElementById('nav-menu');
 
+    menuButton.addEventListener('click', () => {
+        navMenu.classList.toggle('visible');
+    });
+
+  
+});
 

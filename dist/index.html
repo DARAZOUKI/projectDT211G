@@ -10,10 +10,17 @@
 <body>
     <div class="wrapper">
     <header>
-        <nav>
-            <ul>
-                <li><a href="/about.html"><img src="/logo3.42ce5df3.png" alt="logo" class="logo"></a></li>
-                <li><a href="/index.html">WEATHER FORECAST</a></li>
+        <a href="/about.html"><img src="/logo3.42ce5df3.png" alt="logo" class="logo"></a>
+        <button class="menu-btn open" id="open-menu" aria-label="Open Menu">
+            <span class="menu-icon">
+                <span class="bars"></span>
+                <span class="bars"></span>
+                <span class="bars"></span>
+            </span>
+        </button>
+        <nav id="nav-menu" class="nav-menu hidden">
+         <ul>
+                 <li><a href="/index.html">WEATHER FORECAST</a></li>
                 <li><a href="/weatheranimation.html">WEATHER ANIMATION</a></li>
             </ul>
         </nav>
